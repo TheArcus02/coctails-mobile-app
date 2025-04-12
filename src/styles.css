@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 185 11% 93%; /* Neutral-100 */
+  --foreground: 185 8% 5%; /* Black */
+  --card: 185 40% 98%; /* White */
+  --card-foreground: 185 8% 5%; /* Black */
+  --popover: 185 40% 98%; /* White */
+  --popover-foreground: 185 8% 5%; /* Black */
+  --primary: 185 100% 23%; /* Primary-700 */
+  --primary-foreground: 185 40% 98%; /* White */
+  --secondary: 185 8% 5%; /* Black */
+  --secondary-foreground: 185 40% 98%; /* White */
+  --muted: 185 8% 23%; /* Neutral-700 */
+  --muted-foreground: 185 40% 98%; /* White */
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 100% 23%; /* Destructive-700 */
+  --destructive-foreground: 185 40% 98%; /* White */
+  --border: 185 15% 90%; /* Neutral-300 */
+  --input: 185 11% 93%; /* Neutral-100 */
+  --ring: 185 15% 90%; /* Neutral-300 */
+  --radius: 1rem;
+  --neutral: 185 4% 49%; /* Neutral-500 #788283 */
+  --success: 120 89% 89%; /* #D0F8D2 */
+  --success-foreground: 122 54% 34%; /* #26862A */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 180 2% 8%; /* Neutral-900 */
+    --foreground: 185 40% 98%; /* White */
+    --card: 185 7% 11%; /* Neutral-800 */
+    --card-foreground: 185 40% 98%; /* White */
+    --popover: 185 7% 11%; /* Neutral-800 */
+    --popover-foreground: 185 40% 98%; /* White */
+    --primary: 185 100% 23%; /* Primary-700 */
+    --primary-foreground: 185 40% 98%; /* White */
+    --secondary: 185 40% 98%; /* White */
+    --secondary-foreground: 185 8% 5%; /* Black */
+    --muted: 185 4% 49%; /* Neutral-500 */
+    --muted-foreground: 185 40% 98%; /* White */
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 185 40% 98%;
+    --destructive: 0 100% 23%; /* Destructive-700 */
+    --destructive-foreground: 185 40% 98%; /* White */
+    --border: 185 8% 23%; /* Neutral-700 */
+    --input: 185 7% 11%; /* Neutral-800 */
+    --ring: 185 7% 11%; /* Neutral-800 */
+    --neutral: 185 8% 23%; /* Neutral-700 #374041 */
+    --success: 120 89% 89%; /* #D0F8D2 */
+    --success-foreground: 122 54% 34%; /* #26862A */
+  }
+}
+
+/* 
+    Neutrals
+    185 8% 5%; Black
+    180 2% 8%; Neutral-900
+    185 7% 11%; Neutral-800
+    185 8% 23%; Neutral-700
+    185 4% 49%; Neutral-500
+    185 15% 90%; Neutral-300
+    185 11% 93%; Neutral-100
+    185 40% 98%; White
+  
+    Primary
+    185 100% 23%; Primary-700
+    185 54% 46%; Primary-500
+  */
+
+/* RGB
+    #0B0D0D Black
+    #151616 Neutral-900
+    #1B1E1F Neutral-800
+    #374041 Neutral-700
+    #788283 Neutral-500
+    #E0EBEC Neutral-300
+    #EBEFEF Neutral-100
+    #F8FBFC White
+  
+    Primary
+    #006D77 Primary-700
+    #36A9B4 Primary-500
+  */

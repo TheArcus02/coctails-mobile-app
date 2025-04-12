@@ -3,15 +3,22 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
+      "@/*": ["./src/*"]
+    },
+    "jsx": "react-native",
+    "types": ["nativewind/types"],
+    "checkJs": false,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "noUncheckedIndexedAccess": true
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    "src",
+    "*.ts",
+    "*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-  ]
+    "expo-env.d.ts",
+    "nativewind-env.d.ts"
+  ],
+  "exclude": ["node_modules", ".expo"]
 }
