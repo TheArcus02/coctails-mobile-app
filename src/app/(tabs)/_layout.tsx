@@ -1,26 +1,19 @@
-import React from 'react';
-import { Stack } from 'expo-router';
-import { TopTabs } from '@/components/navigation/top-tabs';
+import React from "react";
+import { TopTabs } from "@/components/navigation/top-tabs";
 
 const TabsLayout = () => {
   return (
     <TopTabs>
       <TopTabs.Screen
-        name='alcohol'
+        name="alcohol"
         options={{
-          title: 'Alkoholowe',
+          title: "Alkoholowe",
         }}
       />
       <TopTabs.Screen
-        name='non-alcohol'
+        name="non-alcohol"
         options={{
-          title: 'Bezalkoholowe',
-        }}
-      />
-      <TopTabs.Screen
-        name='coctail/[id]'
-        options={{
-          title: 'Szczegóły koktajlu',
+          title: "Bezalkoholowe",
         }}
       />
     </TopTabs>
