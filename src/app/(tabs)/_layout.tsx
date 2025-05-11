@@ -5,15 +5,15 @@ const TabsLayout = () => {
   return (
     <TopTabs>
       <TopTabs.Screen
-        name="alcohol"
+        name="easy"
         options={{
-          title: "Alkoholowe",
+          title: "Łatwe",
         }}
       />
       <TopTabs.Screen
-        name="non-alcohol"
+        name="hard"
         options={{
-          title: "Bezalkoholowe",
+          title: "Trudne",
         }}
       />
     </TopTabs>

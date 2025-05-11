@@ -19,7 +19,7 @@ const WelcomeScreen = () => {
       <Button
         title='Zaczynajmy'
         variant='primary'
-        onPress={() => router.replace('/(tabs)/alcohol')}
+        onPress={() => router.replace('/(tabs)/easy')}
       />
     </SafeAreaView>
   );
