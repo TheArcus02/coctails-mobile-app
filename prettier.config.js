@@ -1,4 +1,4 @@
-import { fileURLToPath } from "url";
+const path = require("path");
 
 /** @typedef {import("prettier").Config} PrettierConfig */
 /** @typedef {import("prettier-plugin-tailwindcss").PluginOptions} TailwindConfig */
@@ -10,9 +10,7 @@ const config = {
     "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss",
   ],
-  tailwindConfig: fileURLToPath(
-    new URL("./tailwind.config.js", import.meta.url),
-  ),
+  tailwindConfig: path.resolve(__dirname, "./tailwind.config.ts"),
   tailwindFunctions: ["cn", "cva"],
   importOrder: [
     "<TYPES>",
@@ -34,4 +32,4 @@ const config = {
   endOfLine: "auto",
 };
 
-export default config;
+module.exports = config;
