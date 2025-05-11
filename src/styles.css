@@ -24,8 +24,10 @@
   --ring: 185 15% 90%; /* Neutral-300 */
   --radius: 1rem;
   --neutral: 185 4% 49%; /* Neutral-500 #788283 */
-  --success: 120 89% 89%; /* #D0F8D2 */
-  --success-foreground: 122 54% 34%; /* #26862A */
+  --success: 122 54% 34%; /* Success-600 #26862A */
+  --success-foreground: 120 89% 89%; /* #D0F8D2 */
+  --warning: 35 92% 44%; /* Warning-600 #D97706 */
+  --warning-foreground: 48 96% 89%; /* #FEF3C7 */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,8 +52,10 @@
     --input: 185 7% 11%; /* Neutral-800 */
     --ring: 185 7% 11%; /* Neutral-800 */
     --neutral: 185 8% 23%; /* Neutral-700 #374041 */
-    --success: 120 89% 89%; /* #D0F8D2 */
-    --success-foreground: 122 54% 34%; /* #26862A */
+    --success: 122 54% 40%; /* Success-500 #2EA132 */
+    --success-foreground: 120 89% 89%; /* #D0F8D2 */
+    --warning: 35 92% 51%; /* Warning-500 #F59E0B */
+    --warning-foreground: 48 96% 89%; /* #FEF3C7 */
   }
 }
 
@@ -69,6 +73,14 @@
     Primary (Orange)
     24 100% 47%; Orange-600 (#F15A24)
     24 100% 59%; Orange-500 (#FF6B35)
+
+    Success (Green)
+    122 54% 34%; Success-600 (#26862A)
+    122 54% 40%; Success-500 (#2EA132)
+
+    Warning (Amber)
+    35 92% 44%; Warning-600 (#D97706)
+    35 92% 51%; Warning-500 (#F59E0B)
   */
 
 /* RGB

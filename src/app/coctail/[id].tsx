@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, StatusBar, Pressable, Image } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocalSearchParams, router } from 'expo-router';
 import { mockCocktails } from '@/lib/data/mock-cocktails';
 import { Card } from '@/components/ui/card';
@@ -7,11 +7,14 @@ import { Badge } from '@/components/ui/badge';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowLeft, Timer } from 'lucide-react-native';
 import { useColors } from '@/hooks/use-colors';
+import { TimerModal } from '@/components/features/timer/timer-modal';
 
 const CocktailDetailsScreen = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
   const cocktail = mockCocktails.find((c) => c.id === id);
   const { getColor }  = useColors();
+  const [isTimerVisible, setIsTimerVisible] = useState(false);
+  const [activeTimer, setActiveTimer] = useState<number>(0);
 
   if (!cocktail) {
     return null;
@@ -99,6 +102,12 @@ const CocktailDetailsScreen = () => {
                   {instruction.time && (
                     <Pressable 
                       className="flex-row items-center gap-2 mt-2 py-2 px-3 rounded-md bg-primary/10 self-start active:opacity-70"
+                      onPress={() => {
+                        if (instruction.time) {
+                          setActiveTimer(instruction.time);
+                          setIsTimerVisible(true);
+                        }
+                      }}
                     >
                       <Timer size={16} className="text-primary" stroke={getColor('primary')} />
                       <Text className="text-sm font-medium text-primary">
@@ -112,6 +121,11 @@ const CocktailDetailsScreen = () => {
           </Card.Content>
         </Card>
       </ScrollView>
+      <TimerModal 
+        isVisible={isTimerVisible}
+        onClose={() => setIsTimerVisible(false)}
+        initialDuration={activeTimer}
+      />
     </View>
   );
 };
