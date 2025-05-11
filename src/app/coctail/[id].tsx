@@ -1,12 +1,106 @@
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView, StatusBar, Pressable, Image } from 'react-native';
 import React from 'react';
+import { useLocalSearchParams, router } from 'expo-router';
+import { mockCocktails } from '@/lib/data/mock-cocktails';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ArrowLeft } from 'lucide-react-native';
+import { cn } from '@/lib/utils/ui';
 
-const CoctailDetails = () => {
+const CocktailDetailsScreen = () => {
+  const { id } = useLocalSearchParams<{ id: string }>();
+  const cocktail = mockCocktails.find((c) => c.id === id);
+
+  if (!cocktail) {
+    return null;
+  }
+
   return (
-    <View>
-      <Text>CoctailDetails</Text>
+    <View className="flex-1 bg-background">
+      <StatusBar barStyle="light-content" />
+      
+      {/* Image Header */}
+      <View className="h-72 w-full relative">
+        <Image 
+          source={{ uri: cocktail.imageUrl }} 
+          className="w-full h-full"
+          style={{ resizeMode: 'cover' }}
+        />
+        <View className="absolute inset-0 bg-black/40" />
+        
+        {/* Back Button */}
+        <SafeAreaView className="absolute top-0 left-0 right-0" edges={['top']}>
+          <Pressable 
+            onPress={() => router.back()}
+            className="w-10 h-10 ml-4 mt-2 items-center justify-center rounded-full bg-background/10 active:opacity-70"
+          >
+            <ArrowLeft size={24} color="white" />
+          </Pressable>
+        </SafeAreaView>
+
+        {/* Title */}
+        <View className="absolute bottom-0 left-0 right-0 p-6">
+          <Text className="text-2xl font-semibold text-white">
+            {cocktail.name}
+          </Text>
+        </View>
+      </View>
+
+      <ScrollView 
+        className="flex-1 px-4" 
+        showsVerticalScrollIndicator={false}
+        contentContainerClassName="py-4 gap-2"
+      >
+        {/* Complexity Badge */}
+        <View className="mb-2">
+          <Badge
+            variant={cocktail.complexity === 'easy' ? 'success' : 'danger'}
+          >
+            {cocktail.complexity === 'easy' ? 'Łatwe' : 'Trudne'}
+          </Badge>
+        </View>
+
+        {/* Ingredients Card */}
+        <Card>
+          <Card.Header>
+            <Card.Title>Składniki</Card.Title>
+          </Card.Header>
+          <Card.Content className="gap-3">
+            {cocktail.ingredients.map((ingredient, index) => (
+              <View key={index} className="flex-row items-center gap-3">
+                <View className="w-2 h-2 rounded-full bg-primary" />
+                <Text className="text-base text-card-foreground flex-1">
+                  {ingredient}
+                </Text>
+              </View>
+            ))}
+          </Card.Content>
+        </Card>
+
+        {/* Instructions Card */}
+        <Card>
+          <Card.Header>
+            <Card.Title>Instrukcje</Card.Title>
+          </Card.Header>
+          <Card.Content className="gap-6">
+            {cocktail.instructions.map((instruction, index) => (
+              <View key={index} className="flex-row gap-4">
+                <View className="items-center justify-center w-8 h-8 rounded-full bg-primary/10">
+                  <Text className="text-sm font-semibold text-primary">
+                    {index + 1}
+                  </Text>
+                </View>
+                <Text className="text-base text-card-foreground flex-1">
+                  {instruction}
+                </Text>
+              </View>
+            ))}
+          </Card.Content>
+        </Card>
+      </ScrollView>
     </View>
   );
 };
 
-export default CoctailDetails;
+export default CocktailDetailsScreen;

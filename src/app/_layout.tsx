@@ -23,6 +23,13 @@ export default function RootLayout() {
             title: 'Tabs',
           }}
         />
+        <Stack.Screen
+          name='coctail/[id]'
+          options={{
+            title: 'Cocktail',
+            headerShown: false,
+          }}
+        />
       </Stack>
     </>
   );

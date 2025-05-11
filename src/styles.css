@@ -9,7 +9,7 @@
   --card-foreground: 185 8% 5%; /* Black */
   --popover: 185 40% 98%; /* White */
   --popover-foreground: 185 8% 5%; /* Black */
-  --primary: 185 100% 23%; /* Primary-700 */
+  --primary: 24 100% 47%; /* Orange-600 #F15A24 */
   --primary-foreground: 185 40% 98%; /* White */
   --secondary: 185 8% 5%; /* Black */
   --secondary-foreground: 185 40% 98%; /* White */
@@ -36,7 +36,7 @@
     --card-foreground: 185 40% 98%; /* White */
     --popover: 185 7% 11%; /* Neutral-800 */
     --popover-foreground: 185 40% 98%; /* White */
-    --primary: 185 100% 23%; /* Primary-700 */
+    --primary: 24 100% 59%; /* Orange-500 #FF6B35 - Brighter for dark mode */
     --primary-foreground: 185 40% 98%; /* White */
     --secondary: 185 40% 98%; /* White */
     --secondary-foreground: 185 8% 5%; /* Black */
@@ -66,9 +66,9 @@
     185 11% 93%; Neutral-100
     185 40% 98%; White
   
-    Primary
-    185 100% 23%; Primary-700
-    185 54% 46%; Primary-500
+    Primary (Orange)
+    24 100% 47%; Orange-600 (#F15A24)
+    24 100% 59%; Orange-500 (#FF6B35)
   */
 
 /* RGB
@@ -81,7 +81,7 @@
     #EBEFEF Neutral-100
     #F8FBFC White
   
-    Primary
-    #006D77 Primary-700
-    #36A9B4 Primary-500
+    Primary (Orange)
+    #F15A24 Orange-600
+    #FF6B35 Orange-500
   */
