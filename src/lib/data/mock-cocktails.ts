@@ -51,7 +51,7 @@ export const mockCocktails: Cocktail[] = [
     id: '4',
     name: 'Negroni',
     complexity: 'hard',
-    imageUrl: 'https://images.unsplash.com/photo-1576874240748-125dd9d6a62d?q=80&w=1024',
+    imageUrl: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1024',
     ingredients: ['Gin', 'Campari', 'Słodki wermut'],
     instructions: [
       { text: 'Wymieszaj składniki z lodem', time: 25 },
@@ -82,8 +82,33 @@ export const mockCocktails: Cocktail[] = [
       { text: 'Przecedź do schłodzonego kieliszka' },
       { text: 'Udekoruj wiśnią' }
     ],
+  },
+  {
+    id: '7',
+    name: 'Piña Colada',
+    complexity: 'easy',
+    imageUrl: 'https://images.unsplash.com/photo-1500630967344-3b1f546423ce?q=80&w=1024',
+    ingredients: ['Biały rum', 'Mleko kokosowe', 'Sok ananasowy', 'Lód kruszony'],
+    instructions: [
+      { text: 'Włóż wszystkie składniki do blendera', time: 10 },
+      { text: 'Miksuj do uzyskania kremowej konsystencji', time: 30 },
+      { text: 'Przelej do szklanki i udekoruj plasterkiem ananasa' }
+    ],
+  },
+  {
+    id: '8',
+    name: 'Espresso Martini',
+    complexity: 'hard',
+    imageUrl: 'https://images.unsplash.com/photo-1676471793068-0db319151c3a?q=80&w=1024',
+    ingredients: ['Wódka', 'Likier kawowy', 'Świeże espresso', 'Syrop cukrowy', 'Ziarna kawy do dekoracji'],
+    instructions: [
+      { text: 'Przygotuj świeże espresso i ostudź', time: 60 },
+      { text: 'Wstrząśnij wszystkie składniki z lodem', time: 20 },
+      { text: 'Przecedź do kieliszka martini' },
+      { text: 'Udekoruj ziarnami kawy' }
+    ],
   }
-]; 
+];
 
 export const easyCocktails = mockCocktails.filter(cocktail => cocktail.complexity === 'easy');
 export const hardCocktails = mockCocktails.filter(cocktail => cocktail.complexity === 'hard');
