@@ -5,9 +5,10 @@ import { mockCocktails } from '@/lib/data/mock-cocktails';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ArrowLeft, Timer } from 'lucide-react-native';
+import { ArrowLeft, Timer, MessageSquare } from 'lucide-react-native';
 import { useColors } from '@/hooks/use-colors';
 import { TimerModal } from '@/components/features/timer/timer-modal';
+import { FloatingButton } from '@/components/ui/floating-button';
 
 const CocktailDetailsScreen = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -19,6 +20,10 @@ const CocktailDetailsScreen = () => {
   if (!cocktail) {
     return null;
   }
+
+  const handleShareIngredients = () => {
+    // SMS sharing logic will be implemented later
+  };
 
   return (
     <View className="flex-1 bg-background">
@@ -54,7 +59,7 @@ const CocktailDetailsScreen = () => {
       <ScrollView 
         className="flex-1 px-4" 
         showsVerticalScrollIndicator={false}
-        contentContainerClassName="py-4 gap-2"
+        contentContainerClassName="py-4 gap-2 pb-24"
       >
         {/* Complexity Badge */}
         <View className="mb-2">
@@ -125,6 +130,10 @@ const CocktailDetailsScreen = () => {
         isVisible={isTimerVisible}
         onClose={() => setIsTimerVisible(false)}
         initialDuration={activeTimer}
+      />
+      <FloatingButton 
+        icon={MessageSquare}
+        onPress={handleShareIngredients}
       />
     </View>
   );
