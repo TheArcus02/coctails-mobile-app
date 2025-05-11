@@ -33,7 +33,7 @@ const CocktailItem = ({ cocktail, onPress }: CocktailItemProps) => {
             {cocktail.ingredients.length > 2 ? '...' : ''}
           </Text>
           <Text className="text-xs text-muted-foreground/70">
-            {cocktail.instructions[0]}
+            {cocktail.instructions[0]?.text}
           </Text>
         </View>
       </View>

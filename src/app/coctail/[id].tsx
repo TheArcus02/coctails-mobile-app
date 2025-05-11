@@ -5,12 +5,13 @@ import { mockCocktails } from '@/lib/data/mock-cocktails';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ArrowLeft } from 'lucide-react-native';
-import { cn } from '@/lib/utils/ui';
+import { ArrowLeft, Timer } from 'lucide-react-native';
+import { useColors } from '@/hooks/use-colors';
 
 const CocktailDetailsScreen = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
   const cocktail = mockCocktails.find((c) => c.id === id);
+  const { getColor }  = useColors();
 
   if (!cocktail) {
     return null;
@@ -91,9 +92,21 @@ const CocktailDetailsScreen = () => {
                     {index + 1}
                   </Text>
                 </View>
-                <Text className="text-base text-card-foreground flex-1">
-                  {instruction}
-                </Text>
+                <View className="flex-1">
+                  <Text className="text-base text-card-foreground">
+                    {instruction.text}
+                  </Text>
+                  {instruction.time && (
+                    <Pressable 
+                      className="flex-row items-center gap-2 mt-2 py-2 px-3 rounded-md bg-primary/10 self-start active:opacity-70"
+                    >
+                      <Timer size={16} className="text-primary" stroke={getColor('primary')} />
+                      <Text className="text-sm font-medium text-primary">
+                        {instruction.time} sekund
+                      </Text>
+                    </Pressable>
+                  )}
+                </View>
               </View>
             ))}
           </Card.Content>
