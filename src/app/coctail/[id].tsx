@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StatusBar, Pressable, Image } from 'react-native';
+import { View, Text, ScrollView, StatusBar, Pressable, Image, Alert } from 'react-native';
 import React, { useState } from 'react';
 import { useLocalSearchParams, router } from 'expo-router';
 import { mockCocktails } from '@/lib/data/mock-cocktails';
@@ -9,6 +9,7 @@ import { ArrowLeft, Timer, MessageSquare } from 'lucide-react-native';
 import { useColors } from '@/hooks/use-colors';
 import { TimerModal } from '@/components/features/timer/timer-modal';
 import { FloatingButton } from '@/components/ui/floating-button';
+import * as SMS from 'expo-sms';
 
 const CocktailDetailsScreen = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -21,8 +22,14 @@ const CocktailDetailsScreen = () => {
     return null;
   }
 
-  const handleShareIngredients = () => {
-    // SMS sharing logic will be implemented later
+  const handleShareIngredients = async () => {
+    const isAvailable = await SMS.isAvailableAsync();
+    if (isAvailable) {
+      const message = `Składniki na ${cocktail.name}:\n\n${cocktail.ingredients.join('\n')}`;
+      await SMS.sendSMSAsync([], message);
+    } else {
+      Alert.alert('SMS is not available on this device');
+    }
   };
 
   return (
