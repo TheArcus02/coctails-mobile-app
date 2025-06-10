@@ -3,7 +3,6 @@ import { Stack } from "expo-router";
 import "../styles.css";
 
 import * as React from "react";
-import Animated, { FadeIn } from "react-native-reanimated";
 import { StatusBar } from "expo-status-bar";
 import { SplashScreenAnimation } from "@/components/features/splash-screen/splash-screen-animation";
 import { useColors } from "@/hooks/use-colors";
@@ -21,7 +20,6 @@ export default function RootLayout() {
   return (
     <>
       <StatusBar />
-      {/* <Animated.View entering={FadeIn} className="flex-1"> */}
       <Stack
         screenOptions={{
           headerShadowVisible: false,
@@ -51,7 +49,6 @@ export default function RootLayout() {
           }}
         />
       </Stack>
-      {/* </Animated.View> */}
     </>
   );
 }
