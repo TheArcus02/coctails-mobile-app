@@ -1,8 +1,8 @@
-import { View, FlatList, useWindowDimensions } from 'react-native';
-import React from 'react';
-import CocktailItem from '@/components/cocktails/cocktail-item';
-import type { Cocktail } from '@/lib/data/mock-cocktails';
-import { router } from 'expo-router';
+import type { Cocktail } from "@/lib/data/mock-cocktails";
+import React from "react";
+import { FlatList, useWindowDimensions, View } from "react-native";
+import { router } from "expo-router";
+import CocktailItem from "@/components/cocktails/cocktail-item";
 
 interface CocktailsListProps {
   cocktails: Cocktail[];
@@ -11,14 +11,14 @@ interface CocktailsListProps {
 const CocktailsList = ({ cocktails }: CocktailsListProps) => {
   const { width } = useWindowDimensions();
   const gap = 16;
-  const itemWidth = (width - (gap * 3)) / 2; 
+  const itemWidth = (width - gap * 3) / 2;
 
   const handleCocktailPress = (cocktail: Cocktail) => {
     router.push(`/coctail/${cocktail.id}`);
   };
 
   return (
-    <View className="flex-1 bg-background/50 px-4 pt-4">
+    <View className="flex-1 bg-background px-4 pt-4">
       <FlatList
         data={cocktails}
         renderItem={({ item }) => (
@@ -26,7 +26,7 @@ const CocktailsList = ({ cocktails }: CocktailsListProps) => {
             <CocktailItem cocktail={item} onPress={handleCocktailPress} />
           </View>
         )}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         numColumns={2}
         columnWrapperStyle={{
@@ -38,4 +38,4 @@ const CocktailsList = ({ cocktails }: CocktailsListProps) => {
   );
 };
 
-export default CocktailsList; 
+export default CocktailsList;

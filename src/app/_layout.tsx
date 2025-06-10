@@ -21,37 +21,37 @@ export default function RootLayout() {
   return (
     <>
       <StatusBar />
-      <Animated.View entering={FadeIn} className="flex-1">
-        <Stack
-          screenOptions={{
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: getColor("card"),
-            },
+      {/* <Animated.View entering={FadeIn} className="flex-1"> */}
+      <Stack
+        screenOptions={{
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: getColor("card"),
+          },
+        }}
+      >
+        <Stack.Screen
+          name="index"
+          options={{
+            headerShown: false,
+            title: "Welcome",
           }}
-        >
-          <Stack.Screen
-            name="index"
-            options={{
-              headerShown: false,
-              title: "Welcome",
-            }}
-          />
-          <Stack.Screen
-            name="(tabs)"
-            options={{
-              title: "Książka barmańska",
-            }}
-          />
-          <Stack.Screen
-            name="coctail/[id]"
-            options={{
-              title: "Cocktail",
-              headerShown: false,
-            }}
-          />
-        </Stack>
-      </Animated.View>
+        />
+        <Stack.Screen
+          name="(tabs)"
+          options={{
+            title: "Książka barmańska",
+          }}
+        />
+        <Stack.Screen
+          name="coctail/[id]"
+          options={{
+            title: "Cocktail",
+            headerShown: false,
+          }}
+        />
+      </Stack>
+      {/* </Animated.View> */}
     </>
   );
 }
